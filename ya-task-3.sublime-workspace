@@ -1,0 +1,508 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"disable",
+				"disable-hover"
+			],
+			[
+				"tra",
+				"transitions"
+			],
+			[
+				"head_",
+				"head__bg"
+			],
+			[
+				"a",
+				"auto"
+			],
+			[
+				"head__",
+				"head__big-info"
+			],
+			[
+				"flex",
+				"flex-flow"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"th",
+				"th_path"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"bloc",
+				"inline-block"
+			],
+			[
+				"border-co",
+				"border-color"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"co",
+				"countdown"
+			],
+			[
+				"main",
+				"main__block"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"in",
+				"inherit"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"text",
+				"text-align-last"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"after",
+				"after-nav__contacts"
+			],
+			[
+				"gray",
+				"gray-blue"
+			],
+			[
+				"flex-",
+				"flex-flow"
+			],
+			[
+				"align",
+				"align-items"
+			],
+			[
+				"light",
+				"light-blue"
+			],
+			[
+				"Tra",
+				"translateY"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"scale",
+				"scaleY"
+			],
+			[
+				"scal",
+				"scaleY"
+			],
+			[
+				"art__",
+				"art__head-info"
+			],
+			[
+				"no",
+				"none"
+			],
+			[
+				"col",
+				"column"
+			],
+			[
+				"art",
+				"art__head"
+			],
+			[
+				"border",
+				"border-color"
+			],
+			[
+				"trans",
+				"transparent"
+			],
+			[
+				"fle",
+				"flex-flow"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"tran",
+				"transitions"
+			],
+			[
+				"side-nav__",
+				"side-nav__selected-bg-cl"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"tex",
+				"text-transform"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"hover",
+				"hover-link"
+			],
+			[
+				"word",
+				"word-wrap"
+			],
+			[
+				"side-nav",
+				"side-nav--icon"
+			],
+			[
+				"mod",
+				"module._resolveFilename(request, parent);"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ya-task-3.sublime-project",
+			"settings":
+			{
+				"buffer_size": 45,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 390.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/nikita/dev/test.dev/ya-task-2"
+	],
+	"file_history":
+	[
+		"/home/nikita/dev/test.dev/newApp/index.js",
+		"/home/nikita/dev/test.dev/newApp/index.html",
+		"/home/nikita/dev/test.dev/newApp/server.py",
+		"/var/www/html/persona.dev/index.htm",
+		"/var/www/html/persona.dev/sass/comps/price.sass",
+		"/var/www/html/iivt.dev/wp-content/themes/iivt/sass/fonts.scss",
+		"/var/www/html/iivt.dev/wp-content/themes/iivt/css/complete-style.css",
+		"/media/data/Web/Projects/fanHack_countdown/style/fonts/Fira Mono/stylesheet.css",
+		"/media/data/Web/Projects/fanHack_countdown/style/style.css",
+		"/var/www/html/c-nik.dev/fonts/Nord/stylesheet.css",
+		"/var/www/html/iivt.dev/wp-content/themes/iivt/sass/fonts .scss",
+		"/var/www/html/iivt.dev/wp-content/themes/iivt/js/modules/frontend.js",
+		"/var/www/html/iivt.dev/wp-content/themes/iivt/sass/mixins.scss",
+		"/var/www/html/iivt.dev/wp-content/themes/iivt/js/components.js",
+		"/var/www/html/iivt.dev/wp-content/themes/iivt/section-header.php",
+		"/home/niikita/dev/learn_node/modules/start/app.js",
+		"/home/niikita/dev/learn_node/modules/start/server.js",
+		"/home/niikita/dev/learn_node/modules/start/user/index.js",
+		"/home/niikita/dev/learn_node/modules/start/db/ru.json",
+		"/home/niikita/dev/learn_node/modules/start/db/index.js",
+		"/home/niikita/dev/learn_node/modules/start/user/ru.json",
+		"/home/niikita/dev/learn_node/modules/start/ru.json",
+		"/home/niikita/dev/learn_node/modules/start/user.js",
+		"/home/niikita/dev/learn_node/1.js",
+		"/etc/php5/fpm/php.ini",
+		"/etc/nginx/sites-available/iivt.dev",
+		"/var/www/html/iivt.dev/index.php",
+		"/etc/nginx/sites-available/default",
+		"/usr/share/phpmyadmin/index.php",
+		"/etc/apt/sources.list",
+		"/home/niikita/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/niikita/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"кеш",
+			"кэш",
+			"^\\/api\\/v1",
+			"test",
+			"(/^\\/api\\/v1/.",
+			"/^\\/api\\/v1/",
+			"v1",
+			"^\\/api\\/v1",
+			"student",
+			"picSrc",
+			"student.picSrc",
+			"/api/v1/students",
+			"get",
+			"cons",
+			"data",
+			"scroll",
+			"css",
+			"5em",
+			"апреля",
+			"date",
+			"a ",
+			"side",
+			";",
+			"><",
+			"cons",
+			"script",
+			"seconda",
+			"youtube",
+			"max-width",
+			"anch",
+			"#regi",
+			"drop",
+			"dropd",
+			"positions",
+			"h3",
+			"px",
+			"rem",
+			"z-in",
+			"z",
+			"@",
+			"to-top",
+			"featuredIdToImageFunc",
+			"<",
+			"/Fira Sans",
+			".woff2'",
+			"'../",
+			"smMax",
+			"headShown",
+			"headSh",
+			"headHidd",
+			"navB",
+			"nav-b",
+			"serv",
+			"server",
+			"toT",
+			"scroll",
+			"fira",
+			"word"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ya-task-3.sublime-project",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JSON (JavaScriptNext).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ya-task-3.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/dev/prod.dev/fanhack-new/fanhack-new.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 246.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

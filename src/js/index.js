@@ -32,15 +32,15 @@ var Lib = {
 			
 			case 'student':
 				let studId = uniqueId++;
-				let newStudent = new Student(studId, options.name, options.mentorsPriorityList);
+				let newStudent = new Student(studId, options.name, options.preferredMentorsList);
 
 				if (options.team) {
 					let teamObj = this.select(options.team);
 					if (!teamObj) {
 						teamObj = Lib.add('team', {name: options.team});
 					}
-					teamObj.addTeammate(newStudent);
 					newStudent.team = teamObj;
+					teamObj.addTeammates(newStudent, true);
 				}
 				
 				Lib.students.push(newStudent);
@@ -50,7 +50,21 @@ var Lib = {
 
 			case 'task':
 				let taskId = uniqueId++;
-				let newTask = new Task(taskId, options.title, options.executors);
+				let newTask = new Task(taskId, options.title, options.content);
+
+				if (options.executors) {
+					var newExecutors = options.executors.map(function(item, i, arr){
+						let res = Lib.select(item);
+						if (!res)
+							throw new Error('Невозможно добавить несуществующего исполнителя '+item+'.');
+						if (!(res instanceof Student) && !(res instanceof Team))
+							throw new Error('Исполнитель должен быть студентом или командой.');
+						// res.addTasks(newTask);
+						return res;
+					});
+					newTask.addExecutors(newExecutors);
+				}
+				
 				Lib.tasks.push(newTask);
 				console.log('Added new Task: '+ newTask.title +'.');
 				return newTask;
@@ -58,7 +72,23 @@ var Lib = {
 
 			case 'team':
 				let teamId = uniqueId++;
-				let newTeam = new Team(teamId, options.name, options.teammates);
+				let newTeam = new Team(teamId, options.name);
+
+				if (options.teammates) {
+					var newTeammates = options.teammates.map(function(item, i, arr){
+
+						let newMate = Lib.select(item);
+						if (!newMate)
+							throw new Error('Невозможно добавить в команду несуществующего студента '+item+'.');
+						if (!(newMate instanceof Student))
+							throw new Error('В команде могут состоять только студенты.');
+						// newMate.team = newTeam;
+						return newMate;
+					});
+
+					newTeam.addTeammates(newTeammates);
+				}
+
 				Lib.teams.push(newTeam);
 				console.log('Added new Team: '+ newTeam.name +'.');
 				return newTeam;
@@ -66,7 +96,7 @@ var Lib = {
 
 			case 'mentor':
 				let mentorId = uniqueId++;
-				let newMentor = new Mentor(mentorId, options.name, options.preferredStudents)
+				let newMentor = new Mentor(mentorId, options.name, options.preferredStudentsList)
 				Lib.mentors.push(newMentor);
 				console.log('Added new Mentor: '+ newMentor.name +'.');
 				return newMentor;

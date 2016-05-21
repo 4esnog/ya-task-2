@@ -28,7 +28,25 @@ class Mentor extends LibObject {
 			throw new Error('Список должен быть массивом.');
 			return;
 		}
-	}
 
+		arr = arr.map(function(item, i, arr){
+			let student = Lib.select(item);
+			if (!(student instanceof Student)) student = false;
+			return student;
+		});
+
+		// this.mentorPreferredStudentsList = arr;
+
+		this.mentorPreferredStudentsList = arr.filter(function(item, i, arr){
+			if (item === false) {
+				return false;
+			} else {
+				return true;
+			}
+		});
+	}
+	get preferredStudentsList() {
+		return this.mentorPreferredStudentsList;
+	}
 	
 }

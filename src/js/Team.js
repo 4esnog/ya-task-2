@@ -3,7 +3,8 @@ class Team extends LibObject {
 		super();
 		this.teamId = newId;
 		this.name = newName;
-		this.teamTeammates = (newTeammates !== undefined) 
+		this.teamTasks = [];
+		this.teammates = (newTeammates !== undefined) 
 			? newTeammates
 			: [];
 	}
@@ -23,8 +24,22 @@ class Team extends LibObject {
 		return this.teamName;
 	}
 
-	addTeammate(student) {
-		this.teamTeammates.push(student);
+	set teammates(arr) {
+		this.teamTeammates = arr;
+	}
+	get teammates() {
+		return this.teamTeammates;
+	}
+
+	addTeammates(students) {
+		if (students instanceof LibObject) {
+			this.teamTeammates.push(students);	
+		} else if (isArray(students)) {
+			students.forEach(function(item, i, arr){
+				this.teamTeammates.push(item);
+			});
+		}
+		return this;
 	}
 
 	removeTeammates(arr) {
@@ -37,5 +52,68 @@ class Team extends LibObject {
 				self.teamTeammates.splice(index,1);
 			}
 		});
+		return this;
 	}
+
+	addTasks(tasks, stop = false) {
+		var self = this;
+		if (tasks instanceof LibObject) {
+			for (let item in self.studentTasks) {
+				if (tasks == item.task) return;
+			}
+			let taskRecord = {
+				task: tasks,
+				mark: 0
+			}
+			this.teamTasks.push(taskRecord);
+			if (stop) return;
+			tasks.addExecutors(this, true);
+		} else if (Array.isArray(tasks)) {
+			tasks.forEach(function(item, i, arr){
+				if (item instanceof Task) {
+					for (let innerItem in self.teamTasks) {
+						if (item == innerItem.task) return;
+					}
+					let taskRecord = {
+						task: item,
+						mark: 0
+					}
+					self.teamTasks.push(taskRecord);
+					if (stop) return;
+					item.addExecutors(self, true);
+				}
+			});
+		}
+		return this;
+	}
+
+	removeTasks(arr) {
+		let self = this;
+		arr.forEach(function(item, i, arr){
+			let task = Lib.select(item);
+			if (!task) {
+				console.log('Студент '+ item +' не найден.');
+				return;
+			}
+			let index = self.teamTasks.indexOf(task);
+			if (index !== -1) {
+				self.teamTasks.splice(index,1);
+			}
+		});
+		return this;
+	}
+
+	setMark(selector, mark) {
+		let task = Lib.select(selector);
+		if (!task || !(task instanceof Task)) {
+			throw new Error('Задание '+selector+' не найдено.');
+		}
+		this.teamTasks.forEach(function(item, i, arr) {
+			if (item.task == task) {
+				item.mark = mark;
+			}
+		});
+		return this;
+	}
+
 }

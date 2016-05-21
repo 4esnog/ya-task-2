@@ -148,35 +148,40 @@ Lib.add('team', {
 Задается автоматически при добавлении студента через `Lib.add('student', options)`.
 * Нельзя перезаписать.
 * Можно получить:
-   ```javascript
-	 console.log(stud.id);
-   ```
+
+  ```javascript
+	console.log(stud.id);
+  ```
 
 #### Student.prototype.name
 Свойство, содержащее `строку` с именем студента.
 Задается в `options.name` при добавлении студента через `Lib.add('student', options)`.
 * Можно перезаписать:
-   ```javascript
-	 var stud = Lib.add('student', {name: 'Никита'});
-	 stud.name = 'Чесноков Н.';
-   ```
+
+  ```javascript
+	var stud = Lib.add('student', {name: 'Никита'});
+	stud.name = 'Чесноков Н.';
+  ```
 * Можно получить:
-   ```javascript
-	 console.log(stud.name);
-   ```
+
+  ```javascript
+	console.log(stud.name);
+  ```
 
 #### Student.prototype.team
 Свойство, содержащее `объект` команды, к которой относится студент.
 Задается в `options.team` при добавлении студента `Lib.add('student', options)`.
 * Можно перезаписать:
-   ```javascript
-	 var stud = Lib.add('student', {name: 'Никита', team: 'New team'});
-	 stud.team = Lib.add('team', {name: 'Second team'});
-   ```
+
+  ```javascript
+	var stud = Lib.add('student', {name: 'Никита', team: 'New team'});
+	stud.team = Lib.add('team', {name: 'Second team'});
+  ```
 * Можно получить:
-   ```javascript
-	 console.log(stud.team);
-   ```
+
+  ```javascript
+	console.log(stud.team);
+  ```
 
 #### Student.prototype.addTasks( tasks: Task object | Array )
 Метод для добавления заданий студенту.
@@ -209,6 +214,7 @@ Lib.add('team', {
 Задается автоматически при добавлении команды через `Lib.add('team', options)`.
 * Нельзя перезаписать.
 * Можно получить:
+
    ```javascript
 	 console.log(team.id);
    ```
@@ -217,23 +223,26 @@ Lib.add('team', {
 Свойство, содержащее `строку` с именем команды.
 Задается в `options.name` при добавлении команды через `Lib.add('team', options)`.
 * Можно перезаписать:
-   ```javascript
-	 var team = Lib.add('team', {name: 'Lakers'});
-	 team.name = 'Chicago Bulls';
-   ```
+
+  ```javascript
+	var team = Lib.add('team', {name: 'Lakers'});
+	team.name = 'Chicago Bulls';
+  ```
 * Можно получить:
-   ```javascript
-	 console.log(team.name);
-   ```
+
+  ```javascript
+	console.log(team.name);
+  ```
 
 #### Team.prototype.teammates
 Свойство, содержащее `массив` `объектов` студентов, состоящих в команде.
 Задается в `options.team` при добавлении команды `Lib.add('team', options)`.
 * Можно изменить с помощью `Team.prototype.addTeammates` и `Team.prototype.removeTeammates` (см.ниже)
 * Можно получить:
-   ```javascript
-	 console.log(team.teammates);
-   ```
+
+  ```javascript
+	console.log(team.teammates);
+  ```
 
 #### Team.prototype.addTeammates( students: Student object | Array )
 Метод для добавления членов команды.
@@ -278,40 +287,45 @@ Lib.add('team', {
 Задается автоматически при добавлении задания через `Lib.add('task', options)`.
 * Нельзя перезаписать.
 * Можно получить:
-   ```javascript
-	 console.log(task.id);
-   ```
+
+  ```javascript
+	console.log(task.id);
+  ```
 
 #### Task.prototype.title
 Свойство, содержащее `строку` с заголовком задания.
 Задается в `options.title` при добавлении задания через `Lib.add('task', options)`.
 * Можно перезаписать:
-   ```javascript
-	 var task = Lib.add('task', {title: 'Первое задание'});
-	 task.title = 'Второе задание';
-   ```
+
+  ```javascript
+	var task = Lib.add('task', {title: 'Первое задание'});
+	task.title = 'Второе задание';
+  ```
 * Можно получить:
-   ```javascript
-	 console.log(task.title);
-   ```
+
+  ```javascript
+	console.log(task.title);
+  ```
 
 #### Task.prototype.content
 Свойство, содержащее `строку` - содержание задания.
 Задается в `options.content` при добавлении задания через `Lib.add('task', options)`.
 * Нельзя перезаписать.
 * Можно получить:
-   ```javascript
-	 console.log(task.content);
-   ```
+
+  ```javascript
+	console.log(task.content);
+  ```
 
 #### Task.prototype.executors
 Свойство, содержащее `массив` `объектов` студентов, состоящих в команде.
 Задается в `options.task` при добавлении задания `Lib.add('task', options)`.
 * Можно изменить с помощью `Task.prototype.addExecutors` и `Task.prototype.removeexecutors` (см.ниже)
 * Можно получить:
-   ```javascript
-	 console.log(team.executors);
-   ```
+
+  ```javascript
+	console.log(team.executors);
+  ```
 
 #### Task.prototype.addExecutors( students: Student object | Array )
 Метод для добавления исполнителей задания.

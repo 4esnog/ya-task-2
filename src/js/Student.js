@@ -1,8 +1,10 @@
-class Student {
-	constructor(newName, newTeam, newMentors) {
+class Student extends LibObject {
+	constructor(newId, newName, newMentors, newTeam) {
+		super();
+		this.studentId = newId;
 		this.tasks = [];
 		this.name = newName;
-		if (newTeam !== undefined) this.team = newTeam;
+		// if (newTeam !== undefined) this.team = newTeam;
 		this.mentorsPriorityList = (newMentors !== undefined)
 			? newMentors
 			: [];
@@ -12,19 +14,35 @@ class Student {
 		this.studMarks.push({[task.id]: mark});
 	}
 
-	set marks(arr) {
-		this.studMarks = arr;
+	set id(newId) {
+		throw new Error('Нельзя менять ID.');
+		return;
+	}
+	get id() {
+		return this.studentId;
 	}
 
 	set name(str) {
-		this.studName = str;
+		this.studentName = str;
+	}
+	get name(){
+		return this.studentName;
 	}
 
-	get marks() {
-		return this.studMarks;
+	set team(obj) {
+		this.studentTeam = obj;
+	}
+	get team() {
+		return this.studentTeam;
 	}
 
-	get name() {
-		return this.studName;
-	}
+	// set marks(arr) {
+	// 	this.studMarks = arr;
+	// }
+
+
+	// get marks() {
+	// 	return this.studMarks;
+	// }
+
 }

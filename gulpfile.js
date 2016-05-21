@@ -96,8 +96,8 @@ gulp.task('watch', function(){
 
 gulp.task('serve', ()=>{
 	bs.init({
-		server: 'public/',
-		// proxy: 'test.dev/ya-task-2/public/',
+		// server: 'public/',
+		proxy: 'test.dev/ya-task-2/public/',
 		// tunnel: true
 	})
 

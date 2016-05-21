@@ -279,7 +279,15 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 524,
+				"buffer_size": 8550,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/index.js",
+			"settings":
+			{
+				"buffer_size": 5637,
 				"line_ending": "Unix"
 			}
 		},
@@ -287,15 +295,7 @@
 			"file": "src/js/Student.js",
 			"settings":
 			{
-				"buffer_size": 483,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/js/Mentor.js",
-			"settings":
-			{
-				"buffer_size": 205,
+				"buffer_size": 1819,
 				"line_ending": "Unix"
 			}
 		},
@@ -303,7 +303,7 @@
 			"file": "src/js/Team.js",
 			"settings":
 			{
-				"buffer_size": 222,
+				"buffer_size": 1712,
 				"line_ending": "Unix"
 			}
 		},
@@ -311,7 +311,15 @@
 			"file": "src/js/Task.js",
 			"settings":
 			{
-				"buffer_size": 169,
+				"buffer_size": 1246,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/Mentor.js",
+			"settings":
+			{
+				"buffer_size": 1039,
 				"line_ending": "Unix"
 			}
 		}
@@ -454,6 +462,56 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Mentor",
+			"mentor",
+			"student",
+			"команды",
+			"eam",
+			"членов команды",
+			"Teammates",
+			"eam",
+			"team",
+			"Team",
+			"name",
+			"team",
+			"Team",
+			"team",
+			"Team",
+			"задания",
+			"stud",
+			"студента",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"taskExecutors",
+			"executor",
+			"executors",
+			"Executors",
+			"executors",
+			"Executors",
+			"res",
+			"options.teammates",
+			"executors",
+			"teamTeammates",
+			"student",
+			"students",
+			"'",
+			"this",
+			"mentor",
+			"name",
+			"Name",
+			"mentor",
+			"Name",
+			"id",
+			"return new",
+			"var result",
+			"break",
+			"id",
 			"—",
 			"Lib.students[Lib.students.length-1]",
 			"tasks",
@@ -533,7 +591,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -549,8 +607,8 @@
 						"selection":
 						[
 							[
-								2023,
-								2023
+								2566,
+								2566
 							]
 						],
 						"settings":
@@ -560,10 +618,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 620.0,
+						"translation.y": 1540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -572,43 +630,74 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 524,
+						"buffer_size": 8550,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								524,
-								524
+								408,
+								408
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 240.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/js/Student.js",
+					"file": "src/js/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 483,
+						"buffer_size": 5637,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								152,
-								152
+								3797,
+								3797
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2100.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/js/Student.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1819,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1374,
+								1374
 							]
 						],
 						"settings":
@@ -618,39 +707,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 960.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/js/Mentor.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 205,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								87,
-								87
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -659,21 +719,52 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 222,
+						"buffer_size": 1712,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								73,
-								73
+								1372,
+								1372
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 780.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/js/Task.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1240,
+								1240
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -683,32 +774,33 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "src/js/Task.js",
+					"buffer": 6,
+					"file": "src/js/Mentor.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 169,
+						"buffer_size": 1039,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								82,
-								82
+								703,
+								703
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -777,7 +869,7 @@
 		[
 			[
 				"",
-				"~/dev/test.dev/ya-task-2/ya-task-3.sublime-workspace"
+				"~/dev/prod.dev/fanhack-new/fanhack-new.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -799,7 +891,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 246.0,
+	"side_bar_width": 209.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

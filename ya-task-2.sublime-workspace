@@ -276,10 +276,10 @@
 			}
 		},
 		{
-			"file": "src/js/index.js",
+			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 1253,
+				"buffer_size": 524,
 				"line_ending": "Unix"
 			}
 		},
@@ -454,6 +454,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"—",
 			"Lib.students[Lib.students.length-1]",
 			"tasks",
 			"Performers",
@@ -567,26 +568,24 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/js/index.js",
-					"semi_transient": true,
+					"file": "README.md",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1253,
+						"buffer_size": 524,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								27,
-								27
+								524,
+								524
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -778,7 +777,7 @@
 		[
 			[
 				"",
-				"~/dev/prod.dev/fanhack-new/fanhack-new.sublime-project"
+				"~/dev/test.dev/ya-task-2/ya-task-3.sublime-workspace"
 			]
 		],
 		"width": 380.0

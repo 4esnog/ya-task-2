@@ -268,6 +268,46 @@
 	"buffers":
 	[
 		{
+			"file": "src/js/index.js",
+			"settings":
+			{
+				"buffer_size": 6381,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/Student.js",
+			"settings":
+			{
+				"buffer_size": 3239,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/Team.js",
+			"settings":
+			{
+				"buffer_size": 2572,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/Task.js",
+			"settings":
+			{
+				"buffer_size": 1508,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/Mentor.js",
+			"settings":
+			{
+				"buffer_size": 1691,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "gulpfile.js",
 			"settings":
 			{
@@ -279,47 +319,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 8550,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/js/index.js",
-			"settings":
-			{
-				"buffer_size": 5637,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/js/Student.js",
-			"settings":
-			{
-				"buffer_size": 1819,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/js/Team.js",
-			"settings":
-			{
-				"buffer_size": 1712,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/js/Task.js",
-			"settings":
-			{
-				"buffer_size": 1246,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/js/Mentor.js",
-			"settings":
-			{
-				"buffer_size": 1039,
+				"buffer_size": 9513,
 				"line_ending": "Unix"
 			}
 		}
@@ -373,12 +373,16 @@
 	},
 	"expanded_folders":
 	[
-		"/home/nikita/dev/test.dev/ya-task-2",
-		"/home/nikita/dev/test.dev/ya-task-2/src",
-		"/home/nikita/dev/test.dev/ya-task-2/src/js"
+		"/home/nikita/dev/test.dev/ya-task-2"
 	],
 	"file_history":
 	[
+		"/home/nikita/dev/test.dev/ya-task-2/gulpfile.js",
+		"/home/nikita/dev/test.dev/ya-task-2/README.md",
+		"/home/nikita/dev/test.dev/ya-task-2/src/js/Student.js",
+		"/home/nikita/dev/test.dev/ya-task-2/src/js/Team.js",
+		"/home/nikita/dev/test.dev/ya-task-2/src/js/Task.js",
+		"/home/nikita/dev/test.dev/ya-task-2/src/js/Mentor.js",
 		"/home/nikita/dev/test.dev/ya-task-2/ya-task-2.sublime-workspace",
 		"/home/nikita/dev/test.dev/ya-task-2/public/js/index.js",
 		"/home/nikita/dev/test.dev/ya-task-2/src/index.html",
@@ -462,6 +466,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"selector",
+			"менторов",
+			"selector",
+			"mentor",
+			"Mentors",
+			"mentor",
+			"Mentor",
+			"in",
+			"parse",
 			"Mentor",
 			"mentor",
 			"student",
@@ -596,6 +609,151 @@
 			[
 				{
 					"buffer": 0,
+					"file": "src/js/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5666,
+								5666
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4492.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/js/Student.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3218,
+								3218
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2340.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/js/Team.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2572,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1754,
+								1754
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2000.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/js/Task.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1104,
+								1104
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 520.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/js/Mentor.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1691,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1669,
+								1669
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "gulpfile.js",
 					"semi_transient": false,
 					"settings":
@@ -607,38 +765,37 @@
 						"selection":
 						[
 							[
-								2566,
-								2566
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
 							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1540.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 6,
 					"file": "README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8550,
+						"buffer_size": 9513,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								408,
-								408
+								1678,
+								1678
 							]
 						],
 						"settings":
@@ -648,156 +805,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 240.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/js/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5637,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3797,
-								3797
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2100.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/js/Student.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1819,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1374,
-								1374
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 960.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/js/Team.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1712,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1372,
-								1372
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 780.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/js/Task.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1246,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1240,
-								1240
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/js/Mentor.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1039,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								703,
-								703
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 420.0,
+						"translation.y": 726.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,

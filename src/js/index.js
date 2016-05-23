@@ -108,6 +108,7 @@ var Lib = {
 			break;
 		}
 	},
+	
 
 	edit: function(selector, options) {
 
@@ -129,13 +130,14 @@ var Lib = {
 			object[prop] = options[prop];
 		}
 		return object;
-
 	},
+
 
 	students: [],
 	mentors: [],
 	tasks: [],
 	teams: [],
+
 
 	select: function(selector) {
 		var result = undefined;
@@ -216,12 +218,74 @@ var Lib = {
 			// throw new Error('Объект '+selector+' не найден');
 		}
 		return result;
+	},
 
+	getFinalPriorityList: function() {
+		var finalArr = [];
+		this.mentors.forEach(function(mentor, i, arr){
+			let mentorStudentsList = mentor.preferredStudentsList;
+			let indexes = [];
+			let bestStudent;
+
+			mentorStudentsList.forEach(function(prefStudent, studentIndex, arr){
+				let prefMentorsList = prefStudent.preferredMentorsList;
+				let mentorIndex = prefMentorsList.indexOf(mentor);
+				let isStudentAdded = false;
+
+				finalArr.forEach( function(item, i, arr) {
+					if (item.student == prefStudent) isStudentAdded = true;
+				} );
+
+				if ((mentorIndex == -1) || (isStudentAdded)) return;
+
+				indexes.push({
+					index: mentorIndex + studentIndex,
+					student: prefStudent
+				});
+			});
+
+			indexes.forEach(function(currentStudent, i, arr){
+				if (i == 0) {
+					bestStudent = currentStudent;
+					return;
+				}
+
+				if (currentStudent.index < bestStudent.index) {
+					bestStudent = currentStudent;
+				}
+			});
+
+			finalArr.push({
+				mentor: mentor,
+				student: bestStudent.student,
+				index: bestStudent.index
+			});
+
+		});
+
+
+		return finalArr;
 	}
 };
 
-var user = new Student('Никита');
 window.Lib = Lib;
-// Lib.students.push(new Student('Никита'));
-// Lib.students.push(new Student('Леся'));
 })();
+
+// Test
+Lib.add('student', {name: 'Tolya', team: 'TeamDino'});  								 // id = 0
+Lib.add('student', {name: 'Masha', team: 'TeamDino'});  								 // id = 2
+Lib.add('student', {name: 'Andrew', team: 'TeamDino'}); 								 // id = 3
+Lib.add('student', {name: 'Petya', team: 'TeamDino'});  								 // id = 4
+
+Lib.add('mentor', {name: 'Golodnov', preferredStudentsList: [0,2,3,4]}); // id = 5
+Lib.add('mentor', {name: 'Belaya', preferredStudentsList: [3,4,0,2]});   // id = 6
+Lib.add('mentor', {name: 'Chesnokov', preferredStudentsList: [4,3,2]});  // id = 7
+
+Lib.select(0).preferredMentorsList = [5,6,7];
+Lib.select(2).preferredMentorsList = [5,6,7];
+Lib.select(3).preferredMentorsList = [7,6,5];
+Lib.select(4).preferredMentorsList = [6,5];
+
+console.time('a');
+var list = Lib.getFinalPriorityList();
+console.timeEnd('a');

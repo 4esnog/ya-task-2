@@ -35,18 +35,21 @@ class Task extends LibObject {
 	// 	this.taskExecutors = arr;
 	// }
 	get executors() {
-		return this.taskExecutors
+		return this.taskExecutors;
 	}
 
 	addExecutors(executors, stop = false) {
 		var self = this;
-		if (executors instanceof LibObject) {
+		if ((executors instanceof Student) || (item instanceof Team)) {
 			if (executors in this.taskExecutors) return;
 			this.taskExecutors.push(executors);
 			if (stop) return;
 			executors.addTasks(this, true);
 		} else if (Array.isArray(executors)) {
 			executors.forEach(function(item, i, arr){
+				item = Lib.select(item);
+				if (!(item instanceof Student) || !(item instanceof Team))
+					throw new Error('Задание можно дать только студенту или команде');
 				if (item in self.taskExecutors) return;
 				self.taskExecutors.push(item);
 				if (stop) return;

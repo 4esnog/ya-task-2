@@ -34,7 +34,7 @@ class Student extends LibObject {
 	}
 
 	set preferredMentorsList(arr) {
-		if (typeof arr !== typeof [] ) {
+		if (!Array.isArray(arr)) {
 			throw new Error('Список должен быть массивом.');
 			return;
 		}
@@ -54,15 +54,38 @@ class Student extends LibObject {
 		});
 	}
 	get preferredMentorsList() {
-		this.studentPreferredMentorsList;
+		return this.studentPreferredMentorsList;
+	}
+
+	addPreferredMentor(mentor, priority) {
+		if ((typeof priority === 'number') || !isNaN(mentor)) {
+			priority = parseInt(priority);
+		} else {
+			throw new Error('Приоритет должен быть числом.')
+		}
+
+		if (!(mentor instanceof Mentor))
+			mentor = Lib.select(selector);
+		if (!(mentor instanceof Mentor))
+			throw new Error('В список менторов можно добавлять только менторов.');
+
+		let mentorOldIndex = this.studentPreferredMentorsList.indexOf(mentor);
+		if (mentorOldIndex !== -1) {
+			this.studentPreferredMentorsList.splice(mentorOldIndex, 1);
+		}
+		this.studentPreferredMentorsList.splice(priority-1, 0, mentor);
+		
+		return this;
 	}
 
 	addTasks(tasks, stop = false) {
 		var self = this;
+		var taskIsSet = false;
 		if (tasks instanceof Task) {
-			for (let item in this.studentTasks) {
-				if (tasks == item.task) return;
-			}
+			this.studentTasks.forEach(function(item, i, arr) {
+				if (tasks == item.task) taskIsSet = true;
+			});
+			if (taskIsSet) return;
 			let taskRecord = {
 				task: tasks,
 				mark: 0
@@ -72,18 +95,21 @@ class Student extends LibObject {
 			tasks.addExecutors(this, true);
 		} else if (Array.isArray(tasks)) {
 			tasks.forEach(function(item, i, arr){
-				if (item instanceof Task) {
-					for (let innerItem in self.studentTasks) {
-						if (item == innerItem.task) return;
-					}
-					let taskRecord = {
-						task: item,
-						mark: 0
-					}
-					self.studentTasks.push(taskRecord);
-					if (stop) return;
-					item.addExecutors(self, true);
+				item = Lib.select('item');
+
+				self.studentTasks.forEach(function(innerItem, i, arr) {
+					if (item == innerItem.task) taskIsSet = true;
+				});
+				if (taskIsSet) return;
+
+				let taskRecord = {
+					task: item,
+					mark: 0
 				}
+				self.studentTasks.push(taskRecord);
+				if (stop) return;
+				item.addExecutors(self, true);
+				
 			});
 		}
 		return this;
@@ -94,7 +120,7 @@ class Student extends LibObject {
 		arr.forEach(function(item, i, arr){
 			let task = Lib.select(item);
 			if (!task) {
-				console.log('Студент '+ item +' не найден.');
+				console.log('Задание '+ item +' не найдено.');
 				return;
 			}
 			let index = self.studentTasks.indexOf(task);

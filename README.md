@@ -14,7 +14,11 @@
 * [Добавление студентов-участников](#libaddtype-options)
 * [Объединение участников в команды](#Создание-команды)
 * [Создание командных и индивидуальных заданий](#libaddtype-options)
-* [Выставление оценок за задание](#)
+* Выставление оценок за задание:
+  * [Студентам](#studentprototypesetmarks-selector-string--number--task-object-mark-number-)
+  * [Командам](#teamprototypesetmarks-selector-string--number--task-object-mark-number-)
+* [Cоздание приоритизированных списков менторов и студентов]()
+* [Решение задачи распределения студентов среди менторов в соответствии с приоритизированными списками]()
 
 ### Lib.add(type, options)
 
@@ -24,78 +28,77 @@
 
 ##### type
 `Cтрока`, содержащая тип объекта для добавления. Тип может быть одним из следующих:
-* `student` - при добавлении студента-участника,
-* `mentor` - при добавлении ментора,
-* `task` - при создании задания,
-* `team` - при создании команды.
+* [student](#student) - при добавлении студента-участника,
+* [mentor]() - при добавлении ментора,
+* [team](#team) - при создании команды,
+* [task](#task) - при создании задания.
 
----
+
 
 ##### options
-`Объект`, содержащий информацию о добавляемом объекте. В зависимости от заданного **type**. __*Должен*__ содержать хотя бы одно свойство (`name` или `title`).
+`Объект`, содержащий информацию о добавляемом объекте. __*Должен*__ содержать хотя бы одно свойство (`name` или `title`).
 
-Может принимать следующие свойства:
-* **При *type* = `student`:**
+В зависимости от заданного **type**, может принимать следующие свойства:
+###### При type = `student`:
 
-  * `name` - *строка* с именем студента,
-  * `team` - *строка* с названием команды **или** *число* с ID команды **или** *объект* команды,
-  * TODO `mentorsPriorityList` - *массив* объектов типа:
+* **name** - `строка` с именем студента,
+* **team** - `строка` с названием команды **или** `число` с ID команды **или** `объект команды`; если к моменту создания студента, команда не существует, *она будет создана автоматически* ([см. Lib.add('team', options)]()),
+* **preferredMentorsList** - `массив` объектов типа `Mentor` **или** `чисел` ID менторов **или** `строк` - имён менторов, в порядке *от самого приоритетного к самому нежелаемому*.
+
+Пример:
     
-    ```javascript
-    {
-    	mentor: 'Иван Иванов', // строка, ID или объект
-        priority: 1 		   // число приоритетности
-    }
-    ```
+```javascript
+var student = Lib.add('student', {
+    name: 'Никита',
+    team: 'Новая Команда',
+    preferredMentorsList: [ 1, 'Иван', Lib.mentors[3] ]
+});
+```
 
-* **При *type* = `mentor`:**
-  * `name` - *строка* с именем ментора,
-  * `preferredStudents` - **массив** *объектов*, аналогичный `mentorsPriorityList` у `Student`:
-   
-    ```javascript
-    {
-    	student: 0123, // строка, ID или объект
-        priority: 3	   // число приоритетности
-    }
-    ```
+###### При type = `mentor`:
+* **name** - `строка` с именем ментора,
+* **preferredStudentsList** - `массив` объектов типа `Student` **или** `чисел` ID студентов **или** `строк` - имён студентов, в порядке *от самого приоритетного к самому нежелаемому*.
+
+Пример: 
+```javascript
+var mentor = Lib.add('mentor', {
+    name: 'Иван',
+    preferredStudentsList: [ 1, 'Никита', Lib.students[4] ]
+});
+```
   
-* **При *type* = `task`:**
-  * `title` - *строка* с названием задания,
-  * `content` - *строка* с содержанием задания,
-  * `executors` - **массив** *объектов*, *строк* с именами или *чисел* ID студентов и команд, выполняющих данное задание;
+###### При type = `task`:
+* **title** - `строка` с названием задания,
+* **content** - `строка` с содержанием задания,
+* **executors** - `массив` объектов типа `Student` или `Team`, `строк` с именами или `чисел` ID студентов и команд, выполняющих данное задание.
 
-* **При *type* = `team`:**
-  * `name` - *строка* с названием команды,
-  * `teammates` - **массив** *объектов*, *строк* с именами или *чисел* ID студентов, состоящих в команде.
+Пример:
+```javascript
+var task = Lib.add('task', {
+    title: 'Иван',
+    content: 'Создайте библиотеку...',
+    executors: [ 1, 'Никита', 'Новая Команда' ]
+});
+```
 
----
+###### При type = `team`:
+* **name** - `строка` с названием команды,
+* **teammates** - `массив` объектов типа `Student`, `строк` с именами или `чисел` ID студентов, состоящих в команде.
+
+Пример:
+```javascript
+var team = Lib.add('team', {
+    name: 'Новая Команда',
+    teammates: [ 1, 'Никита', Lib.students[4] ]
+});
+```
 
 #### Результат
 Создаётся новый объект указанного типа с информацией, данной в `options`.
-Объект сохраняется в массиве Lib.`type`s (Например, `Lib.students`).
+Объект сохраняется в массиве Lib.**type**'s, соответствующем типу созданного объекта (Например, `Lib.students`).
 
 **Возвращает:** созданный *объект*.
 
-#### Примеры
-
-##### Добавление студента
-
-```javascript
-Lib.add('student', {
-	name: 'Никита',
-	team: 'Новая Команда',
-	mentorsList: []
-	});
-```
-
-##### Создание команды
-
-```javascript
-Lib.add('team', {
-	name: 'TeamPanda',
-    teammates: [ 'Никита', 123, Lib.students[0] ]
-});
-```
 ---
 
 ### Lib.edit(selector, options)
@@ -106,7 +109,7 @@ Lib.add('team', {
 
 ##### selector
 
-`Строка`, соответствующая **name**/**title** объекта; `число` - ID объекта или сам `объект`.
+`Строка`, соответствующая **name**/**title** объекта или `число` - ID объекта или сам `объект`.
 
 ##### options
 
@@ -116,12 +119,11 @@ Lib.add('team', {
 
 Меняет информацию о выбранном объекте на новую, переданную через **options**.
 
-**Возвращает:** выбранный объект.
+**Возвращает:** изменённый объект.
 
 ---
 
 ### Lib.select(selector)
-
 Выбирает один из ранее добавленных объектов.
 
 #### Параметры
@@ -134,6 +136,18 @@ Lib.add('team', {
 
 **Возвращает:** выбранный объект.
 
+---
+
+### Lib.getFinalPriorityList()
+Распределяет студентов среди менторов в соответствии с приоритизированными списками.
+
+#### Результат
+
+**Возвращает:** `Массив` объектов, содержащих 3 элемента:
+
+* **index:** `Число`, сумма приоритетности студента для ментора и ментора для студента. Чем меньше число, тем выше приоритетность,
+* **mentor:** `Объект Mentor`, ментор, выбранный для студента,
+* **student:** `Объект Student`, студент, выбранный для ментора.
 
 
 
@@ -150,7 +164,7 @@ Lib.add('team', {
 * Можно получить:
 
   ```javascript
-	console.log(stud.id);
+  var studentId = student.id;
   ```
 
 #### Student.prototype.name
@@ -159,13 +173,13 @@ Lib.add('team', {
 * Можно перезаписать:
 
   ```javascript
-	var stud = Lib.add('student', {name: 'Никита'});
-	stud.name = 'Чесноков Н.';
+  var student = Lib.add('student', {name: 'Никита'});
+  stud.name = 'Чесноков Н.';
   ```
 * Можно получить:
 
   ```javascript
-	console.log(stud.name);
+  var studentName = student.name; // 'Чесноков Н.'
   ```
 
 #### Student.prototype.team
@@ -174,32 +188,78 @@ Lib.add('team', {
 * Можно перезаписать:
 
   ```javascript
-	var stud = Lib.add('student', {name: 'Никита', team: 'New team'});
-	stud.team = Lib.add('team', {name: 'Second team'});
+  var student = Lib.add('student', {name: 'Никита', team: 'New team'});
+  student.team = Lib.add('team', {name: 'Another team'});
   ```
 * Можно получить:
 
   ```javascript
-	console.log(stud.team);
+  var studentTeam = student.team; // 'Another team'
   ```
 
-#### Student.prototype.addTasks( tasks: Task object | Array )
+#### Student.prototype.preferredMentorsList
+Свойство, содержащее приоритизированный список менторов в виде `массива` объектов типа `Mentor` (или [селекторов](#selector-1)), в котором менторы отсортированы *от самого приоритетного к самому нежелательному*.
+Задается в `options.preferredMentorsList` при добавлении студента `Lib.add('student', options)`.
+* Можно перезаписать:
+
+  ```javascript
+  var student = Lib.add('student', {
+      name: 'Никита',
+      preferredMentorsList: ['Иван', 'Пёрт']
+  });
+  student.preferredMentorsList = ['Иван'];
+  ```
+* Можно получить:
+
+  ```javascript
+  var studentMentorsList = student.preferredMentorsList; // [ Mentor objects ]
+  ```
+
+#### Student.prototype.addPreferredMentor(mentor: [selector](#selector-1), priority: Number)
+Метод для добавления ментора в приоритизированный список менторов.
+Принимает 2 параметра:
+* **mentor** - `селектор` ментора (ID, title или объект типа Mentor),
+* **priority** - `число` приоритетности метора. **Должно** быть >= 1. В приоритизированном списке добавляемый ментор будет добавлен на место (priority-1), сдвигая при этом вниз всех менторов, начиная с того, который ранее занимал место (priority-1).
+
+**Пример:**
+```javascript
+student.addPreferredMentor('Иван', 3);
+```
+
+**Возвращает:** измененный `объект` студента.
+
+#### Student.prototype.addTasks( tasks: [Task object](#task) | Array )
 Метод для добавления заданий студенту.
-Принимает `объект` задания или `массив` объектов задания.
+Принимает `объект` задания или `массив` селекторов задания (ID, title или самих объектов).
+
+**Пример:**
+```javascript
+student.addTasks([ 0, 'Задание 2', Lib.tasks[3] ]);
+```
 
 **Возвращает:** измененный `объект` студента.
 
-#### Student.prototype.removeTasks( tasks: Task object | Array )
+#### Student.prototype.removeTasks( tasks: [Task object](#task) | Array of [selector](#selector-1) )
 Метод для удаления заданий студента.
-Принимает `объект` задания или `массив` объектов задания.
+Принимает `объект` задания или `массив` селекторов задания (ID, title или самих объектов).
+
+**Пример:**
+```javascript
+student.removeTasks([ 0, 'Задание 2', Lib.tasks[3] ]);
+```
 
 **Возвращает:** измененный `объект` студента.
 
-#### Student.prototype.setMarks( selector: String | Number | Task object, mark: Number )
+#### Student.prototype.setMark( selector: [selector](#selector-1), mark: Number )
 Метод для выставления оценки за выполнение задания студенту.
 Принимает два параметра:
 * **selector** - `Строка`, `Число` или `Объект задания`, указывающая на оцениваемое задание,
 * **mark** - `Число`, оценка.
+
+**Пример:**
+```javascript
+student.setMark([ 'Задание 2', 5 ]);
+```
 
 **Возвращает:** измененный `объект` студента.
 
@@ -216,7 +276,7 @@ Lib.add('team', {
 * Можно получить:
 
    ```javascript
-	 console.log(team.id);
+   var teamId = team.id;
    ```
 
 #### Team.prototype.name
@@ -225,54 +285,79 @@ Lib.add('team', {
 * Можно перезаписать:
 
   ```javascript
-	var team = Lib.add('team', {name: 'Lakers'});
-	team.name = 'Chicago Bulls';
+  var team = Lib.add('team', {name: 'Lakers'});
+  team.name = 'Chicago Bulls';
   ```
 * Можно получить:
 
   ```javascript
-	console.log(team.name);
+  var teamName = team.name; // 'Chicago Bulls'
   ```
 
 #### Team.prototype.teammates
-Свойство, содержащее `массив` `объектов` студентов, состоящих в команде.
+Свойство, содержащее `массив` объектов типа [Student](#student) студентов, состоящих в команде.
 Задается в `options.team` при добавлении команды `Lib.add('team', options)`.
-* Можно изменить с помощью `Team.prototype.addTeammates` и `Team.prototype.removeTeammates` (см.ниже)
+* Можно изменить с помощью [Team.prototype.addTeammates](#teamprototypeaddteammates-students-student-object--array-) и [Team.prototype.removeTeammates](#teamprototyperemoveteammates-students-student-object--array-) (см.ниже)
 * Можно получить:
 
   ```javascript
-	console.log(team.teammates);
+  var teammates = team.teammates;
   ```
 
-#### Team.prototype.addTeammates( students: Student object | Array )
+#### Team.prototype.addTeammates( students: [Student object](#student) | Array of [selector](#selector-1) )
 Метод для добавления членов команды.
-Принимает `объект` студента или `массив` объектов студентов.
+Принимает `объект` студента или `массив` селекторов студентов (ID, title или самих объектов).
+
+**Пример:**
+```javascript
+team.addTeammates( Lib.students[0] );
+```
 
 **Возвращает:** измененный `объект` команды.
 
-#### Team.prototype.removeTeammates( students: Student object | Array )
+#### Team.prototype.removeTeammates( students: Student object | Array of [selector](#selector-1) )
 Метод для удаления членов команды.
-Принимает `объект` студента или `массив` объектов студентов.
+Принимает `объект` студента или `массив` селекторов студентов (ID, title или самих объектов).
+
+**Пример:**
+```javascript
+team.removeTeammates( Lib.students[0] );
+```
 
 **Возвращает:** измененный `объект` команды.
 
-#### Team.prototype.addTasks( tasks: Task object | Array )
+#### Team.prototype.addTasks( tasks: Task object | Array of [selector](#selector-1) )
 Метод для добавления заданий команде.
-Принимает `объект` задания или `массив` объектов задания.
+Принимает `объект` задания или `массив` селекторов задания (ID, title или самих объектов).
+
+**Пример:**
+```javascript
+team.addTasks([ Lib.tasks[0], 2, 'New task' ]);
+```
 
 **Возвращает:** измененный `объект` команды.
 
-#### Team.prototype.removeTasks( tasks: Task object | Array )
+#### Team.prototype.removeTasks( tasks: Task object | Array of [selector](#selector-1) )
 Метод для удаления заданий команды.
-Принимает `объект` задания или `массив` объектов задания.
+Принимает `объект` задания или `массив` селекторов задания (ID, title или самих объектов).
+
+**Пример:**
+```javascript
+team.removeTasks([ Lib.tasks[0], 2, 'New task' ]);
+```
 
 **Возвращает:** измененный `объект` команды.
 
-#### Student.prototype.setMarks( selector: String | Number | Task object, mark: Number )
+#### Team.prototype.setMark( selector: [selector](#selector-1), mark: Number )
 Метод для выставления оценки за выполнение задания команде.
 Принимает два параметра:
 * **selector** - `Строка`, `Число` или `Объект задания`, указывающая на оцениваемое задание,
 * **mark** - `Число`, оценка.
+
+**Пример:**
+```javascript
+team.setMark( Lib.tasks[4], 4 );
+```
 
 **Возвращает:** измененный `объект` команды.
 
@@ -289,7 +374,7 @@ Lib.add('team', {
 * Можно получить:
 
   ```javascript
-	console.log(task.id);
+  var taskId = task.id;
   ```
 
 #### Task.prototype.title
@@ -298,47 +383,122 @@ Lib.add('team', {
 * Можно перезаписать:
 
   ```javascript
-	var task = Lib.add('task', {title: 'Первое задание'});
-	task.title = 'Второе задание';
+  var task = Lib.add('task', {title: 'Первое задание'});
+  task.title = 'Второе задание';
   ```
 * Можно получить:
 
   ```javascript
-	console.log(task.title);
+  var taskTitle = task.title; // 'Второе задание'
   ```
 
 #### Task.prototype.content
 Свойство, содержащее `строку` - содержание задания.
 Задается в `options.content` при добавлении задания через `Lib.add('task', options)`.
-* Нельзя перезаписать.
+* Можно перезаписать:
+
+  ```javascript
+  var task = Lib.add('task', {
+      title: 'Первое задание',
+      content: 'Создайте библиотеку...'});
+  task.content = 'Найдите и исправьте ошибки...';
+  ```
 * Можно получить:
 
   ```javascript
-	console.log(task.content);
+  var taskContent = task.content; // 'Найдите и исправьте ошибки...'
   ```
 
 #### Task.prototype.executors
 Свойство, содержащее `массив` `объектов` студентов, состоящих в команде.
 Задается в `options.task` при добавлении задания `Lib.add('task', options)`.
-* Можно изменить с помощью `Task.prototype.addExecutors` и `Task.prototype.removeexecutors` (см.ниже)
+* Можно изменить с помощью [Task.prototype.addExecutors](#taskprototypeaddexecutors-students-student-object--array-) и [Task.prototype.removeexecutors](#taskprototyperemoveexecutors-students-student-object--array-) (см.ниже)
 * Можно получить:
 
   ```javascript
-	console.log(team.executors);
+  var taskExecutors = task.executors; // [...]
   ```
 
-#### Task.prototype.addExecutors( students: Student object | Array )
+#### Task.prototype.addExecutors( students: [Student object](#student) | Array of [selector](#selector-1) )
 Метод для добавления исполнителей задания.
-Принимает `объект` студента или `массив` объектов студентов.
+Принимает `объект` студента/команды или `массив` селекторов исполнителей (ID, title или самих объектов).
+
+**Пример:**
+```javascript
+task.addExecutors([1]);
+```
 
 **Возвращает:** измененный `объект` задания.
 
-#### Task.prototype.removeExecutors( students: Student object | Array )
+#### Task.prototype.removeExecutors( students: [Student object](#student) | Array of [selector](#selector-1) )
 Метод для удаления исполнителей задания.
-Принимает `объект` студента или `массив` объектов студентов.
+Принимает `объект` студента/команды или `массив` селекторов исполнителей (ID, title или самих объектов).
+
+**Пример:**
+```javascript
+task.removeExecutors([1]);
+```
 
 **Возвращает:** измененный `объект` задания.
 
 ---
 
 ### Mentor
+Класс менторов.
+Объекты класса создаются через `Lib.add('mentor', options)`.
+
+#### Mentor.prototype.id
+Свойство, содержащее `число` - уникальный ID ментора.
+Задается автоматически при добавлении ментора через `Lib.add('mentor', options)`.
+* Нельзя перезаписать.
+* Можно получить:
+
+  ```javascript
+  var mentorId = mentor.id;
+  ```
+
+#### Mentor.prototype.name
+Свойство, содержащее `строку` с именем ментора.
+Задается в `options.name` при добавлении ментора через `Lib.add('mentor', options)`.
+* Можно перезаписать:
+
+  ```javascript
+  var mentor = Lib.add('mentor', {name: 'Иван'});
+  mentor.name = 'Александр';
+  ```
+* Можно получить:
+
+  ```javascript
+  var mentorName = mentor.name; // 'Александр'
+  ```
+
+#### Mentor.prototype.preferredStudentsList
+Свойство, содержащее приоритизированный список студентов в виде `массива` объектов типа `Student` (или [селекторов](#selector-1)), в котором студенты отсортированы *от самого приоритетного к самому нежелательному*.
+Задается в `options.preferredStudentsList` при добавлении ментора `Lib.add('mentor', options)`.
+* Можно перезаписать:
+
+  ```javascript
+  var student = Lib.add('mentor', {
+      name: 'Никита',
+      preferredStudentsList: ['Никита', 'Антон']
+  });
+  student.preferredStudentsList = ['Никита'];
+  ```
+* Можно получить:
+
+  ```javascript
+  var mentorStudentsList = mentor.preferredStudentsList; // [ Student objects ]
+  ```
+
+#### Mentor.prototype.addPreferredStudent(student: [selector](#selector-1), priority: Number)
+Метод для добавления студента в приоритизированный список студентов.
+Принимает 2 параметра:
+* **student** - `селектор` студента (ID, title или объект типа Student),
+* **priority** - `число` приоритетности студента. **Должно** быть >= 1. В приоритизированном списке добавляемый студент будет добавлен на место (priority-1), сдвигая при этом вниз всех студентов, начиная с того, который ранее занимал место (priority-1).
+
+**Пример:**
+```javascript
+mentor.addPreferredStudent('Антон', 3);
+```
+
+**Возвращает:** измененный `объект` ментора.

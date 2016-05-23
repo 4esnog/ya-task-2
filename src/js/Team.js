@@ -34,8 +34,11 @@ class Team extends LibObject {
 	addTeammates(students) {
 		if (students instanceof LibObject) {
 			this.teamTeammates.push(students);	
-		} else if (isArray(students)) {
+		} else if (Array.isArray(students)) {
 			students.forEach(function(item, i, arr){
+				item = Lib.select(item);
+				if (!(item instanceof Student))
+					throw new Error('В команду можно добавить только студентов');
 				this.teamTeammates.push(item);
 			});
 		}
@@ -57,10 +60,12 @@ class Team extends LibObject {
 
 	addTasks(tasks, stop = false) {
 		var self = this;
-		if (tasks instanceof LibObject) {
-			for (let item in self.studentTasks) {
-				if (tasks == item.task) return;
-			}
+		var taskIsSet = false;
+		if (tasks instanceof Task) {
+			self.studentTasks.forEach(function(item, i, arr) {
+				if (tasks == item.task) taskIsSet = true;
+			});
+			if (taskIsSet) return;
 			let taskRecord = {
 				task: tasks,
 				mark: 0
@@ -70,18 +75,20 @@ class Team extends LibObject {
 			tasks.addExecutors(this, true);
 		} else if (Array.isArray(tasks)) {
 			tasks.forEach(function(item, i, arr){
-				if (item instanceof Task) {
-					for (let innerItem in self.teamTasks) {
-						if (item == innerItem.task) return;
-					}
-					let taskRecord = {
-						task: item,
-						mark: 0
-					}
-					self.teamTasks.push(taskRecord);
-					if (stop) return;
-					item.addExecutors(self, true);
+				item = Lib.select('item');
+				
+				self.teamTasks.forEach(function(innerItem, i, arr) {
+					if (item == innerItem.task) taskIsSet = true;
+				});
+				if (taskIsSet) return;
+				let taskRecord = {
+					task: item,
+					mark: 0
 				}
+				self.teamTasks.push(taskRecord);
+				if (stop) return;
+				item.addExecutors(self, true);
+				
 			});
 		}
 		return this;
@@ -105,7 +112,7 @@ class Team extends LibObject {
 
 	setMark(selector, mark) {
 		let task = Lib.select(selector);
-		if (!task || !(task instanceof Task)) {
+		if (!(task instanceof Task)) {
 			throw new Error('Задание '+selector+' не найдено.');
 		}
 		this.teamTasks.forEach(function(item, i, arr) {

@@ -13,12 +13,52 @@
 
 * [Добавление студентов-участников](#libaddtype-options)
 * [Объединение участников в команды](#Создание-команды)
-* [Создание командных и индивидуальных заданий](#libaddtype-options)
+* [Создание командных и индивидуальных заданий]()
 * Выставление оценок за задание:
   * [Студентам](#studentprototypesetmarks-selector-string--number--task-object-mark-number-)
   * [Командам](#teamprototypesetmarks-selector-string--number--task-object-mark-number-)
 * [Cоздание приоритизированных списков менторов и студентов]()
 * [Решение задачи распределения студентов среди менторов в соответствии с приоритизированными списками]()
+
+### Содержание по API
+
+#### Lib:
+* [Lib.add(type, options)](#libaddtype-options)
+* [Lib.edit(selector, options)](#)
+* [Lib.select(selector)](#libaddtype-options)
+* [Lib.getFinalPriorityList()]()
+
+#### Объекты, их типы
+* [Student](#student)
+  * [Student.prototype.id]()
+  * [Student.prototype.name]()
+  * [Student.prototype.team]()
+  * [Student.prototype.preferredMentorsList]()
+  * [Student.prototype.addPreferredMentor(mentor, priority)]()
+  * [Student.prototype.addTasks(tasks)]()
+  * [Student.prototype.removeTasks(tasks)]()
+  * [Student.prototype.setMark(selector, mark)]()
+* [Team](#team)
+  * [Student.prototype.id]()
+  * [Student.prototype.name]()
+  * [Student.prototype.teammates]()
+  * [Student.prototype.addTeammates(students)]()
+  * [Student.prototype.removeTeammates(students)]()
+  * [Student.prototype.addTasks(tasks)]()
+  * [Student.prototype.removeTasks(tasks)]()
+  * [Student.prototype.setMark(selector, mark)]()
+* [Task](#task)
+  * [Student.prototype.id]()
+  * [Student.prototype.title]()
+  * [Student.prototype.content]()
+  * [Student.prototype.executors]()
+  * [Student.prototype.addExecutors(students)]()
+  * [Student.prototype.removeExecutors(students)]()
+* [Mentor](#mentor)
+  * [Student.prototype.id]()
+  * [Student.prototype.name]()
+  * [Student.prototype.preferredStudentsList]()
+  * [Student.prototype.addPreferredStudent(student, priority)]()
 
 ### Lib.add(type, options)
 
@@ -228,7 +268,7 @@ student.addPreferredMentor('Иван', 3);
 
 **Возвращает:** измененный `объект` студента.
 
-#### Student.prototype.addTasks( tasks: [Task object](#task) | Array )
+#### Student.prototype.addTasks( tasks: [Task object](#task) | Array of [selector](#selector-1) )
 Метод для добавления заданий студенту.
 Принимает `объект` задания или `массив` селекторов задания (ID, title или самих объектов).
 

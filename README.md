@@ -12,53 +12,53 @@
 ### Содержание по пунктам задания
 
 * [Добавление студентов-участников](#libaddtype-options)
-* [Объединение участников в команды](#Создание-команды)
-* [Создание командных и индивидуальных заданий]()
+* [Объединение участников в команды](#При-type--team)
+* Создание [командных](#teamprototypeaddtasks-tasks-task-object--array-of-selector-) и [индивидуальных заданий](#studentprototypeaddtasks-tasks-task-object--array-of-selector-)
 * Выставление оценок за задание:
-  * [Студентам](#studentprototypesetmarks-selector-string--number--task-object-mark-number-)
-  * [Командам](#teamprototypesetmarks-selector-string--number--task-object-mark-number-)
-* [Cоздание приоритизированных списков менторов и студентов]()
-* [Решение задачи распределения студентов среди менторов в соответствии с приоритизированными списками]()
+  * [Студентам](#studentprototypesetmark-selector-selector-mark-number-)
+  * [Командам](#teamprototypesetmark-selector-selector-mark-number-)
+* Cоздание приоритизированных списков [менторов](#studentprototypepreferredmentorslist) и [студентов](#mentorprototypepreferredstudentslist)
+* [Решение задачи распределения студентов среди менторов в соответствии с приоритизированными списками](#libgetfinalprioritylist)
 
 ### Содержание по API
 
 #### Lib:
 * [Lib.add(type, options)](#libaddtype-options)
-* [Lib.edit(selector, options)](#)
-* [Lib.select(selector)](#libaddtype-options)
-* [Lib.getFinalPriorityList()]()
+* [Lib.edit(selector, options)](#libeditselector-options)
+* [Lib.select(selector)](#libselectselector)
+* [Lib.getFinalPriorityList()](#libgetfinalprioritylist)
 
 #### Объекты, их типы
 * [Student](#student)
-  * [Student.prototype.id]()
-  * [Student.prototype.name]()
-  * [Student.prototype.team]()
-  * [Student.prototype.preferredMentorsList]()
-  * [Student.prototype.addPreferredMentor(mentor, priority)]()
-  * [Student.prototype.addTasks(tasks)]()
-  * [Student.prototype.removeTasks(tasks)]()
-  * [Student.prototype.setMark(selector, mark)]()
+  * [Student.prototype.id](#studentprototypeid)
+  * [Student.prototype.name](#studentprototypename)
+  * [Student.prototype.team](#studentprototypeteam)
+  * [Student.prototype.preferredMentorsList](#studentprototypepreferredmentorslist)
+  * [Student.prototype.addPreferredMentor(mentor, priority)](#studentprototypeaddpreferredmentormentor-selector-priority-number)
+  * [Student.prototype.addTasks(tasks)](#studentprototypeaddtasks-tasks-task-object--array-of-selector-)
+  * [Student.prototype.removeTasks(tasks)](#studentprototyperemovetasks-tasks-task-object--array-of-selector-)
+  * [Student.prototype.setMark(selector, mark)](#studentprototypesetmark-selector-selector-mark-number-)
 * [Team](#team)
-  * [Student.prototype.id]()
-  * [Student.prototype.name]()
-  * [Student.prototype.teammates]()
-  * [Student.prototype.addTeammates(students)]()
-  * [Student.prototype.removeTeammates(students)]()
-  * [Student.prototype.addTasks(tasks)]()
-  * [Student.prototype.removeTasks(tasks)]()
-  * [Student.prototype.setMark(selector, mark)]()
+  * [Student.prototype.id](#teamprototypeid)
+  * [Student.prototype.name](#teamprototypename)
+  * [Student.prototype.teammates](#teamprototypeteammates)
+  * [Student.prototype.addTeammates(students)](#teamprototypeaddteammates-students-student-object--array-of-selector-)
+  * [Student.prototype.removeTeammates(students)](#teamprototyperemoveteammates-students-student-object--array-of-selector-)
+  * [Student.prototype.addTasks(tasks)](#teamprototypeaddtasks-tasks-task-object--array-of-selector-)
+  * [Student.prototype.removeTasks(tasks)](#teamprototyperemovetasks-tasks-task-object--array-of-selector-)
+  * [Student.prototype.setMark(selector, mark)](#teamprototypesetmark-selector-selector-mark-number-)
 * [Task](#task)
-  * [Student.prototype.id]()
-  * [Student.prototype.title]()
-  * [Student.prototype.content]()
-  * [Student.prototype.executors]()
-  * [Student.prototype.addExecutors(students)]()
-  * [Student.prototype.removeExecutors(students)]()
+  * [Student.prototype.id](#taskprototypeid)
+  * [Student.prototype.title](#taskprototypetitle)
+  * [Student.prototype.content](#taskprototypecontent)
+  * [Student.prototype.executors](#taskprototypeexecutors)
+  * [Student.prototype.addExecutors(students)](#taskprototypeaddexecutors-students-student-object--array-of-selector-)
+  * [Student.prototype.removeExecutors(students)](#taskprototyperemoveexecutors-students-student-object--array-of-selector-)
 * [Mentor](#mentor)
-  * [Student.prototype.id]()
-  * [Student.prototype.name]()
-  * [Student.prototype.preferredStudentsList]()
-  * [Student.prototype.addPreferredStudent(student, priority)]()
+  * [Student.prototype.id](#mentorprototypeid)
+  * [Student.prototype.name](#mentorprototypename)
+  * [Student.prototype.preferredStudentsList](#mentorprototypepreferredstudentslist)
+  * [Student.prototype.addPreferredStudent(student, priority)](#mentorprototypeaddpreferredstudentstudent-selector-priority-number)
 
 ### Lib.add(type, options)
 
@@ -69,7 +69,7 @@
 ##### type
 `Cтрока`, содержащая тип объекта для добавления. Тип может быть одним из следующих:
 * [student](#student) - при добавлении студента-участника,
-* [mentor]() - при добавлении ментора,
+* [mentor](#mentor) - при добавлении ментора,
 * [team](#team) - при создании команды,
 * [task](#task) - при создании задания.
 
@@ -82,7 +82,7 @@
 ###### При type = `student`:
 
 * **name** - `строка` с именем студента,
-* **team** - `строка` с названием команды **или** `число` с ID команды **или** `объект команды`; если к моменту создания студента, команда не существует, *она будет создана автоматически* ([см. Lib.add('team', options)]()),
+* **team** - `строка` с названием команды **или** `число` с ID команды **или** `объект команды`; если к моменту создания студента, команда не существует, *она будет создана автоматически* ([см. Lib.add('team', options)](#При-type--team)),
 * **preferredMentorsList** - `массив` объектов типа `Mentor` **или** `чисел` ID менторов **или** `строк` - имён менторов, в порядке *от самого приоритетного к самому нежелаемому*.
 
 Пример:

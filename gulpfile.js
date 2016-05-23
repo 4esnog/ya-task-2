@@ -70,15 +70,15 @@ gulp.task('sass', function(){
 gulp.task('js', function(){
 	return gulp.src('src/js/index.js')
 	.pipe(newer('public/js/'))
-	.pipe(maps.init())
+	// .pipe(maps.init())
 	.pipe(include())
 		.on('error', console.log)
 	.pipe(babel({
 		presets: ['es2015']
 	}))
 	.pipe(uglify())
-	// .pipe(concat('index.js'))
-	.pipe(maps.write())
+	.pipe(concat('mylib.min.js'))
+	// .pipe(maps.write())
 	.pipe(gulp.dest('public/js'))
 })
 
